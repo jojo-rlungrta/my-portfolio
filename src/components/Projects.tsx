@@ -1,12 +1,14 @@
-import project1 from '../assets/project1.jpg';
-import project2 from '../assets/project2.jpg';
-import project3 from '../assets/project3.jpg';
+import project1 from '../assets/portfolio_im10.png';
+import project2 from '../assets/portfolio_im11.png';
+import project3 from '../assets/portfolio_im12.png';
+import project4 from '../assets/portfolio_im13.png';
 
 export default function Projects() {
   const projects = [
-    { id: 1, title: 'Project 1', img: project1 },
-    { id: 2, title: 'Project 2', img: project2 },
-    { id: 3, title: 'Project 3', img: project3 },
+    { id: 1, type: 'pc', title: 'Project 1', img: project1 },
+    { id: 2, type: 'pc', title: 'Project 1', img: project2 },
+    { id: 3, type: 'pc', title: 'Project 1', img: project3 },
+    { id: 4, type: 'pc', title: 'Project 1', img: project4 },
   ];
 
   return (
