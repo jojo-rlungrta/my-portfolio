@@ -1,4 +1,5 @@
 import Background from "./components/Background";
+import Decorations from "./components/Decorations";
 import Header from './components/Header';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -11,10 +12,11 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen px-10 py-20 font-sans">
+    <div className="relative min-h-screen px-4 sm:px-10 py-10 sm:py-20 font-sans">
       <Background />
+      <Decorations />
       <Header />
-      <main className="pt-20">
+      <main className="pt-20 lg:container mx-auto lg:px-4">
         <About />
         <Skills />
         <Projects />
@@ -27,3 +29,4 @@ export default function App() {
     </div>
   );
 }
+

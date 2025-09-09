@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="p-4 bg-gray-200 text-center">
-      © 2025 My Portfolio
+    <footer className="mt-20 text-center">
+      © 2025 j.fukuda Portfolio
     </footer>
   );
 }
