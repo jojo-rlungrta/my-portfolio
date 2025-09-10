@@ -107,8 +107,7 @@ export default function Projects() {
 
             {/* カード下部の詳細 */}
             <div className="p-2 lg:p-4">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-              <p className="text-sm text-gray-400">{project.period}</p>
+              <h3 className="text-lg font-semibold">{project.title} <span className="text-sm">({project.period})</span></h3>
               <p className="text-sm mt-1"><strong>Role:</strong> {project.role}</p>
               <p className="text-sm mt-1"><strong>Tech:</strong> {project.tech.join(', ')}</p>
               <p className="text-sm mt-2">{project.description}</p>
