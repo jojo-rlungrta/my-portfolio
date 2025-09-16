@@ -13,10 +13,15 @@ const Stars = () => {
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      stars = Array.from({ length: 200 }, () => ({
+
+      const isSP = window.innerWidth < 768; // SP判定
+      const starCount = isSP ? 100 : 200;   // 星の数を減らす
+      const maxRadius = isSP ? 1.5 : 2;     // 星の最大半径を小さく
+
+      stars = Array.from({ length: starCount }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 2,
+        r: Math.random() * maxRadius,
       }));
     };
     resize();
@@ -41,8 +46,7 @@ const Stars = () => {
 
       ctx.restore();
 
-      // ゆっくり回転（値を小さくするとさらにゆっくり）
-      angle += 0.0001;
+      angle += 0.0001; // ゆっくり回転
 
       requestAnimationFrame(animate);
     };

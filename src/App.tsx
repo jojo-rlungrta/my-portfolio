@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen px-4 sm:px-10 py-10 sm:py-20 font-sans">
+    <div className="relative min-h-screen px-4 pt-10 lg:pt-20 pb-4 lg:pb-10 font-sans">
       <Background />
       <Decorations />
       <Header />
