@@ -40,7 +40,7 @@ export default function Contact() {
 
         {/* LinkedIn ボタン */}
         <a
-          href="https://www.linkedin.com/in/your-profile"
+          href="https://www.linkedin.com/in/jonosuke-fukuda-305616372/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-4 bg-[#0077B5] text-white
