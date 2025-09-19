@@ -58,10 +58,12 @@ const Stars = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10"
-    />
+    <div className="fixed inset-0 -z-10 overflow-hidden">
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 w-full h-full -z-10"
+      />
+    </div >
   );
 };
 

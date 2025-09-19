@@ -1,10 +1,11 @@
-import Stars from "./Stars";
-
+import Stars from "./BackgroundComponents/Stars";
+import Decorations from "./BackgroundComponents/Decorations";
 const Background = () => {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <>
       <Stars />
-    </div>
+      <Decorations />
+    </>
   );
 };
 
