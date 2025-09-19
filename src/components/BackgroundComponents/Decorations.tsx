@@ -177,7 +177,7 @@ const Decorations = () => {
       <img src={ufo1} alt="" aria-hidden="true" className="absolute top-[740px] sm:top-[600px] lg:top-[170px] right-[20px] lg:left-[150px] w-20 lg:w-28" />
       <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1250px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
       <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[530px] sm:bottom-[580px] lg:bottom-[770px] left-[20px] lg:left-[100px] w-20 lg:w-40" />
-      <img src={MenInBlack} alt="" aria-hidden="true" className="absolute top-[250px] sm:top-[250px] lg:top-[360px] right-[20px] sm:right-[120px] lg:right-[140px] w-12 sm:w-16 lg:w-24 rotate-45 sm:rotate-0" />
+      <img src={MenInBlack} alt="" aria-hidden="true" className="absolute top-[255px] sm:top-[250px] lg:top-[360px] right-[20px] sm:right-[120px] lg:right-[140px] w-12 sm:w-16 lg:w-24 rotate-45 sm:rotate-0" />
 
       {/* SP characters */}
       <img src={jojo3} alt="" aria-hidden="true" className="lg:hidden absolute top-[200px] sm:top-[150px] left-1/2 -translate-x-1/2 w-[120px] sm:w-[150px]" />
