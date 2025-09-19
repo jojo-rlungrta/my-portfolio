@@ -1,12 +1,13 @@
-import project1 from '../assets/portfolio_projects_im01.png';
-import project2 from '../assets/portfolio_projects_im02.png';
-import project3 from '../assets/portfolio_projects_im03.png';
-import project4 from '../assets/portfolio_projects_im04.png';
-import project5 from '../assets/portfolio_projects_im05.png';
-import project6 from '../assets/portfolio_projects_im06.png';
+import project1 from '../assets/portfolio_projects_im01.webp';
+import project2 from '../assets/portfolio_projects_im02.webp';
+import project3 from '../assets/portfolio_projects_im03.webp';
+import project4 from '../assets/portfolio_projects_im04.webp';
+import project5 from '../assets/portfolio_projects_im05.webp';
+import project6 from '../assets/portfolio_projects_im06.webp';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 
 export default function Projects() {
+  // List of portfolio projects
   const projects = [
     {
       id: 1,
@@ -84,7 +85,7 @@ export default function Projects() {
             aria-label={`${project.title} (opens in new tab)`}
             className="group block border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
           >
-            {/* 画像＋hover caption */}
+            {/* Project image with hover effect */}
             <div className="relative overflow-hidden bg-white p-2 lg:p-4">
               <img
                 src={project.img}
@@ -92,10 +93,10 @@ export default function Projects() {
                 className="w-full h-64 object-contain transition-transform duration-300 lg:group-hover:scale-105"
               />
 
-              {/* マスク */}
+              {/* Dark overlay on hover */}
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              {/* キャプション（hover時のみPC） */}
+              {/* Caption displayed on hover (desktop only) */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
                               text-center text-white opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 px-4">
                 <h3 className="text-lg font-semibold flex items-center justify-center gap-2">
@@ -105,7 +106,7 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* カード下部の詳細 */}
+            {/* Project details below the image */}
             <div className="p-2 lg:p-4">
               <h3 className="text-lg font-semibold">{project.title} <span className="text-sm">({project.period})</span></h3>
               <p className="text-sm mt-1"><strong>Role:</strong> {project.role}</p>

@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 import styles from "./Decorations.module.css";
 
 // Image imports
-import item1 from "../assets/portfolio_im02.png";
-import item2 from "../assets/portfolio_im03.png";
-import ufo1 from "../assets/portfolio_im04.png";
-import ufo2 from "../assets/portfolio_im05.png";
-import alien from "../assets/portfolio_im06.png";
-import MenInBlack from "../assets/portfolio_im07.png";
-import jojo1 from "../assets/portfolio_im01.png";
-import jojo2 from "../assets/portfolio_im08.png";
-import jojo3 from "../assets/portfolio_im09.png";
-import jojo4 from "../assets/portfolio_im10.png";
-import star1 from "../assets/portfolio_im11.png";
-import star2 from "../assets/portfolio_im12.png";
-import star3 from "../assets/portfolio_im13.png";
-import rocket from "../assets/portfolio_im14.png";
+import item1 from "../assets/portfolio_im02.webp";
+import item2 from "../assets/portfolio_im03.webp";
+import ufo1 from "../assets/portfolio_im04.webp";
+import ufo2 from "../assets/portfolio_im05.webp";
+import alien from "../assets/portfolio_im06.webp";
+import MenInBlack from "../assets/portfolio_im07.webp";
+import jojo1 from "../assets/portfolio_im01.webp";
+import jojo2 from "../assets/portfolio_im08.webp";
+import jojo3 from "../assets/portfolio_im09.webp";
+import jojo4 from "../assets/portfolio_im10.webp";
+import star1 from "../assets/portfolio_im11.webp";
+import star2 from "../assets/portfolio_im12.webp";
+import star3 from "../assets/portfolio_im13.webp";
+import rocket from "../assets/portfolio_im14.webp";
 
 interface CharData {
   img: string;
