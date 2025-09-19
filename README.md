@@ -1,69 +1,33 @@
-# React + TypeScript + Vite
+# Jonosuke Fukuda | Frontend Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end Developer and Web Director with 8+ years experience in HTML, CSS, JavaScript, and jQuery. Currently learning React, Next.js, and TypeScript. Relocating to Canada on a Working Holiday visa in October 2025.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Skills
+HTML, CSS, SCSS, JavaScript, jQuery, React, Next.js, TypeScript, WordPress, PHP, Git, Webpack
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Selected Projects
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Printing Company Official Website (Oct 2024 - Sep 2025)
+**Role:** Front-end Developer & Web Director  
+**Tech:** React, Next.js, PHP, WordPress, SCSS, JavaScript, jQuery, Webpack, Git  
+- Redesigned the website, improving UI and mobile/tablet usability  
+- Handled both project direction and front-end development  
+- Developed contact form and integrated WordPress for easy content management  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 2. Pharmaceutical Product Search Site (Jan 2023 - Apr 2023)
+**Role:** Front-end Developer  
+**Tech:** SCSS, JavaScript, jQuery, Webpack  
+- Built a JavaScript-based product search system using customer-updated CSV files  
+- Supported free-word search, partial matches, and pagination for results over 10 items  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+See more projects: [Portfolio](https://jojo-rlungrta.github.io/my-portfolio/)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contact
+- LinkedIn: https://www.linkedin.com/in/jonosuke-fukuda-305616372/
+- Email: j.fukuda@rlungrta.jp
