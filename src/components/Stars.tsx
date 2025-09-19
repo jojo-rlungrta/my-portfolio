@@ -10,13 +10,14 @@ const Stars = () => {
     let stars: { x: number; y: number; r: number }[] = [];
     let angle = 0;
 
+    // Initialize stars based on screen size
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      const isSP = window.innerWidth < 768; // SP判定
-      const starCount = isSP ? 100 : 200;   // 星の数を減らす
-      const maxRadius = isSP ? 1.5 : 2;     // 星の最大半径を小さく
+      const isSP = window.innerWidth < 768;
+      const starCount = isSP ? 100 : 200;
+      const maxRadius = isSP ? 1.5 : 2;
 
       stars = Array.from({ length: starCount }, () => ({
         x: Math.random() * canvas.width,
@@ -27,6 +28,7 @@ const Stars = () => {
     resize();
     window.addEventListener("resize", resize);
 
+    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -37,6 +39,7 @@ const Stars = () => {
       ctx.translate(centerX, centerY);
       ctx.rotate(angle);
 
+      // Draw stars
       stars.forEach((s) => {
         ctx.beginPath();
         ctx.arc(s.x - centerX, s.y - centerY, s.r, 0, Math.PI * 2);
@@ -46,8 +49,7 @@ const Stars = () => {
 
       ctx.restore();
 
-      angle += 0.0001; // ゆっくり回転
-
+      angle += 0.0001; // Slow rotation
       requestAnimationFrame(animate);
     };
     animate();
