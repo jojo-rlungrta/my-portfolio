@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 import styles from "./Decorations.module.css";
 
 // Image imports
-import item1 from "../assets/portfolio_im02.webp";
-import item2 from "../assets/portfolio_im03.webp";
-import ufo1 from "../assets/portfolio_im04.webp";
-import ufo2 from "../assets/portfolio_im05.webp";
-import alien from "../assets/portfolio_im06.webp";
-import MenInBlack from "../assets/portfolio_im07.webp";
-import jojo1 from "../assets/portfolio_im01.webp";
-import jojo2 from "../assets/portfolio_im08.webp";
-import jojo3 from "../assets/portfolio_im09.webp";
-import jojo4 from "../assets/portfolio_im10.webp";
-import star1 from "../assets/portfolio_im11.webp";
-import star2 from "../assets/portfolio_im12.webp";
-import star3 from "../assets/portfolio_im13.webp";
-import rocket from "../assets/portfolio_im14.webp";
+import item1 from "../../assets/portfolio_im02.webp";
+import item2 from "../../assets/portfolio_im03.webp";
+import ufo1 from "../../assets/portfolio_im04.webp";
+import ufo2 from "../../assets/portfolio_im05.webp";
+import alien from "../../assets/portfolio_im06.webp";
+import MenInBlack from "../../assets/portfolio_im07.webp";
+import jojo1 from "../../assets/portfolio_im01.webp";
+import jojo2 from "../../assets/portfolio_im08.webp";
+import jojo3 from "../../assets/portfolio_im09.webp";
+import jojo4 from "../../assets/portfolio_im10.webp";
+import star1 from "../../assets/portfolio_im11.webp";
+import star2 from "../../assets/portfolio_im12.webp";
+import star3 from "../../assets/portfolio_im13.webp";
+import rocket from "../../assets/portfolio_im14.webp";
 
 interface CharData {
   img: string;
@@ -175,8 +175,8 @@ const Decorations = () => {
       <img src={star2} alt="" aria-hidden="true" className="absolute top-[2000px] lg:top-[1200px] -left-10 w-[300px] lg:w-[600px]" />
       <img src={star3} alt="" aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full lg:min-w-[1920px]" />
       <img src={ufo1} alt="" aria-hidden="true" className="absolute top-[740px] sm:top-[600px] lg:top-[170px] right-[20px] lg:left-[150px] w-20 lg:w-28" />
-      <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1230px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
-      <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[520px] sm:bottom-[580px] lg:bottom-[770px] left-[20px] lg:left-[100px] w-24 lg:w-40" />
+      <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1250px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
+      <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[530px] sm:bottom-[580px] lg:bottom-[770px] left-[20px] lg:left-[100px] w-20 lg:w-40" />
       <img src={MenInBlack} alt="" aria-hidden="true" className="absolute top-[250px] sm:top-[250px] lg:top-[360px] right-[20px] sm:right-[120px] lg:right-[140px] w-12 sm:w-16 lg:w-24 rotate-45 sm:rotate-0" />
 
       {/* SP characters */}
