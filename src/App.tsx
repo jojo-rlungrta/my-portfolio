@@ -4,8 +4,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import WorkExperience from './components/WorkExperience';
-import Education from './components/Education';
-import Qualification from './components/Qualification';
+import Certification from './components/Certification';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -19,8 +18,7 @@ export default function App() {
         <Skills />
         <Projects />
         <WorkExperience />
-        <Education />
-        <Qualification />
+        <Certification />
         <Contact />
       </main>
       <Footer />

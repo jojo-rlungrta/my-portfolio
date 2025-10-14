@@ -1,9 +1,11 @@
 import project1 from '../assets/portfolio_projects_im01.webp';
 import project2 from '../assets/portfolio_projects_im02.webp';
 import project3 from '../assets/portfolio_projects_im03.webp';
-import project4 from '../assets/portfolio_projects_im04.webp';
-import project5 from '../assets/portfolio_projects_im05.webp';
-import project6 from '../assets/portfolio_projects_im06.webp';
+import project4 from '../assets/portfolio_projects_im07.webp';
+import project5 from '../assets/portfolio_projects_im08.webp';
+import project6 from '../assets/portfolio_projects_im04.webp';
+import project7 from '../assets/portfolio_projects_im05.webp';
+import project8 from '../assets/portfolio_projects_im06.webp';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 
 export default function Projects() {
@@ -13,7 +15,6 @@ export default function Projects() {
       id: 1,
       title: 'Printing Company Official Website',
       url: 'https://www.label-japan.co.jp/',
-      period: 'Oct 2024 - Sep 2025',
       role: 'Front-end Developer & Web Director',
       tech: ['React', 'Next.js', 'PHP', 'WordPress', 'SCSS', 'JavaScript', 'jQuery', 'Webpack', 'Git'],
       description: 'Redesigned a printing company website, improving UI and mobile/tablet usability. Handled both direction and front-end development, including a contact form and WordPress integration for easy content management.',
@@ -23,7 +24,6 @@ export default function Projects() {
       id: 2,
       title: 'Railway Company Official Website',
       url: 'https://www.keihan.co.jp/',
-      period: 'Oct 2023 - Oct 2024',
       role: 'Web Director',
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: 'Led a large-scale renewal by consolidating three railway websites into one, improving accessibility and site management.',
@@ -31,9 +31,8 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: 'Platinum Credit Card Landing Page',
+      title: 'Credit Card Company Official Website',
       url: 'https://www.eposcard.co.jp/',
-      period: 'Apr 2023 - Oct 2023',
       role: 'Web Director',
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: 'Directed the redesign of a platinum credit card landing page, tripling applications through improved design and usability.',
@@ -41,33 +40,48 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: 'Pharmaceutical Product Search Site',
-      url: 'https://www.otsuka.co.jp/cil/',
-      period: 'Jan 2023 - Apr 2023',
+      title: 'Food manufacturer official website',
+      url: 'https://www.kikkoman.com/en/',
       role: 'Front-end Developer',
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
-      description: 'Built a JavaScript-based product search system using customer-updated CSV files, supporting free-word search, partial matches, and pagination for results over 10 items.',
+      description: 'Led the JavaScript development of a CMS-integrated product search system, connecting products with recipes while prioritizing usability and seamless user experience.',
       img: project4,
     },
     {
       id: 5,
-      title: 'Insurance Material Request Form',
-      url: 'https://neofirst.co.jp/',
-      period: 'Sep 2022 - Dec 2022',
+      title: 'Online shopping service introduction site',
+      url: 'https://business.kuronekoyamato.co.jp/raku-uru/',
       role: 'Front-end Developer',
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
-      description: 'Designed an insurance request form with conditional elements via URL queries, Yahoo! login integration, and postal code suggestion features.',
+      description: 'Developed site-wide reusable components, carefully designing CSS to ensure consistent functionality and appearance across all pages.',
       img: project5,
     },
     {
       id: 6,
+      title: 'Pharmaceutical Product Search Site',
+      url: 'https://www.otsuka.co.jp/cil/',
+      role: 'Front-end Developer',
+      tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
+      description: 'Built a JavaScript-based product search system using customer-updated CSV files, supporting free-word search, partial matches, and pagination for results over 10 items.',
+      img: project6,
+    },
+    {
+      id: 7,
+      title: 'Insurance Company Official Website',
+      url: 'https://neofirst.co.jp/',
+      role: 'Front-end Developer',
+      tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
+      description: 'Designed an insurance request form with conditional elements via URL queries, Yahoo! login integration, and postal code suggestion features.',
+      img: project7,
+    },
+    {
+      id: 8,
       title: 'Jewelry Manufacturer Official Website',
       url: 'https://www.ishifuku-kinzoku.co.jp/',
-      period: 'Aug 2022 - Sep 2022',
       role: 'Front-end Developer',
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: 'Handled the front-end of the official homepage, implementing sliders and dynamic topic displays using jQuery and AJAX with JSON.',
-      img: project6,
+      img: project8,
     },
   ];
 
@@ -108,7 +122,7 @@ export default function Projects() {
 
             {/* Project details below the image */}
             <div className="p-2 lg:p-4">
-              <h3 className="text-lg font-semibold">{project.title} <span className="text-sm">({project.period})</span></h3>
+              <h3 className="text-lg font-semibold">{project.title}</h3>
               <p className="text-sm mt-1"><strong>Role:</strong> {project.role}</p>
               <p className="text-sm mt-1"><strong>Tech:</strong> {project.tech.join(', ')}</p>
               <p className="text-sm mt-2">{project.description}</p>

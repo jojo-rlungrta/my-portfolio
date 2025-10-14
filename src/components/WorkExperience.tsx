@@ -7,14 +7,10 @@ export default function WorkExperience() {
           <h3 className="font-bold">Label Japan Co., Ltd. — Tokyo, Japan</h3>
           <p className="mt-4">Web Director / Front-end Developer (Oct 2024 – Sep 2025)</p>
           <ul className="list-disc list-outside pl-5 mt-2 space-y-1">
-            <li>
-              Managed the complete redesign of a printing company’s website.
-              <br />
-              Improving the UI as well as phone and tablet usability. Handling both direction and front-end development.
-            </li>
-            <li>Clearly communicated between clients and web designers to ensure excellent client satisfaction.</li>
+            <li>Managed full redesign of a printing company website, improving UI and mobile/tablet usability.</li>
             <li>Developed a contact form to improve contact between company and potential clients using React, Next.js, and PHP.</li>
             <li>Integrated WordPress into the information section for a client’s website, streamlining content updates and improving content organization.</li>
+            <li>Coordinated between clients and designers to ensure high-quality delivery.</li>
           </ul>
         </div>
         <div>
@@ -27,7 +23,8 @@ export default function WorkExperience() {
           </ul>
           <p className="mt-4">Front-end Developer (Apr 2017 – Mar 2023)</p>
           <ul className="list-disc list-outside pl-5 mt-2 space-y-1">
-            <li>Created websites for major clients in the food manufacturing and jewelry manufacturer industries.</li>
+            <li>Developed JavaScript functionality for a CMS-integrated product search system for a Food manufacturer website</li>
+            <li>Created reusable site-wide components for a Online shopping service introduction site</li>
             <li>Built a JavaScript-based product search system for a pharmaceutical website.</li>
             <li>Designed an insurance request form with conditional elements for a Insurance website.</li>
           </ul>

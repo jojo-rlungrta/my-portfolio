@@ -2,9 +2,10 @@ export default function About() {
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-semibold mb-2">About Me</h2>
-      <p>Front-end Developer and Web Director with over 8 years of experience designing and managing corporate websites across diverse sectors.<br />Proficient in HTML, CSS, JavaScript, and jQuery, with a strong focus on user-centered development.</p>
-      <p>Currently expanding expertise in React, Next.js, and TypeScript through self-directed learning to stay aligned with modern frontend practices.</p>
-      <p>Preparing to relocate to Canada on a Working Holiday visa in October 2025.<br />Actively seeking short-term or contract-based frontend development opportunities in Toronto or remote settings.</p>
+      <p>Front-end Developer and Web Director with 8+ years of experience delivering high-quality corporate websites for enterprise clients in Japan.</p>
+      <p>I specialize in performance-optimized, maintainable, and user-centered frontend development, <br />focusing on accessibility, dynamic content handling, and smooth CMS integration.</p>
+      <p>Currently expanding expertise in React, Next.js, and TypeScript to align with modern frontend practices.</p>
+      <p>Based in Canada on a Working Holiday Visa, seeking short-term or contract frontend opportunities to contribute high-quality, maintainable web solutions to local teams.</p>
     </section>
   );
 }

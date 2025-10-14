@@ -64,7 +64,7 @@ const Decorations = () => {
 
       setWindowSize({ width, height });
       setMaxScroll(scrollHeight - height);
-      setJojo4Y(scrollHeight * 0.8 + 250); // Jojo4 position = 80% of page + 250px
+      setJojo4Y(scrollHeight * 0.8 + 300); // Jojo4 position = 80% of page + 300px
       setPageHeight(scrollHeight); // Full page height
     };
     updateSize();
@@ -252,14 +252,14 @@ const Decorations = () => {
                 className={`absolute ${spinState ? styles["spin-center"] : ""
                   }`}
                 style={{
-                  top: "calc(90% - 180px)",
+                  top: "calc(90% - 150px)",
                   left: "50%",
                   transform: "translateX(-50%)",
                   width: charData[3].width,
                   height: charData[3].height,
                 }}
               />
-              <div className={styles.sunrise} style={{ top: "90%" }} />
+              <div className={styles.sunrise} style={{ top: "91%" }} />
             </>
           )}
 
