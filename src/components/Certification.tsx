@@ -8,10 +8,10 @@ export default function Certification() {
         href="https://www.ipa.go.jp/en/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center underline-offset-2 hover:underline"
+        className="underline-offset-2 hover:underline"
       >
         Fundamental Information Technology Engineer (Japan, National Certification)
-        <ArrowTopRightOnSquareIcon className="ml-1 w-4 h-4" />
+        <ArrowTopRightOnSquareIcon className="inline align-text-bottom w-4 h-4 ml-2" />
       </a>
     </section>
   );
