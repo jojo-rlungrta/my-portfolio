@@ -5,7 +5,7 @@ export default function WorkExperience() {
       <div className="space-y-6">
         <div>
           <h3 className="font-bold">Label Japan Co., Ltd. — Tokyo, Japan</h3>
-          <p className="mt-4">Web Director / Front-end Developer (Oct 2024 – Sep 2025)</p>
+          <p className="mt-4">Web Project Manager / Front-end Developer (Oct 2024 – Sep 2025)</p>
           <ul className="list-disc list-outside pl-5 mt-2 space-y-1">
             <li>Managed full redesign of a printing company website, improving UI and mobile/tablet usability.</li>
             <li>Developed a contact form to improve contact between company and potential clients using React, Next.js, and PHP.</li>
@@ -15,7 +15,7 @@ export default function WorkExperience() {
         </div>
         <div>
           <h3 className="font-bold">Atlas21 Co., Ltd. — Tokyo, Japan</h3>
-          <p className="mt-4">Web Director (Apr 2023 – Oct 2024)</p>
+          <p className="mt-4">Web Project Manager (Apr 2023 – Oct 2024)</p>
           <ul className="list-disc list-outside pl-5 mt-2 space-y-1">
             <li>Directed the redesign of a platinum credit card landing page, increasing applications threefold through better design and usability.</li>
             <li>Led a large-scale renewal of a railway company’s website by combining three sites into one for improved accessibility and management.</li>
