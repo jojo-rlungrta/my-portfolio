@@ -23,7 +23,7 @@ const LinkedInIcon = () => (
 
 export default function Contact() {
   return (
-    <section className="text-left">
+    <section className="mt-20">
       {/* ボタン：スマホ縦、PC横（左寄せ） */}
       <div className="flex flex-col lg:flex-row lg:justify-start gap-4">
         {/* メールボタン */}

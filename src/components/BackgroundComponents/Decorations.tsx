@@ -64,7 +64,7 @@ const Decorations = () => {
 
       setWindowSize({ width, height });
       setMaxScroll(scrollHeight - height);
-      setJojo4Y(scrollHeight * 0.8 + 300); // Jojo4 position = 80% of page + 300px
+      setJojo4Y(scrollHeight * 0.8 + 400); // Jojo4 position = 80% of page + 300px
       setPageHeight(scrollHeight); // Full page height
     };
     updateSize();
@@ -174,9 +174,9 @@ const Decorations = () => {
       <img src={star1} alt="" aria-hidden="true" className="absolute top-[270px] lg:top-[400px] right-0 w-60 lg:w-80" />
       <img src={star2} alt="" aria-hidden="true" className="absolute top-[2000px] lg:top-[1200px] -left-10 w-[300px] lg:w-[600px]" />
       <img src={star3} alt="" aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full lg:min-w-[1920px]" />
-      <img src={ufo1} alt="" aria-hidden="true" className="absolute top-[740px] sm:top-[600px] lg:top-[170px] right-[20px] lg:left-[150px] w-20 lg:w-28" />
-      <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1250px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
-      <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[530px] sm:bottom-[580px] lg:bottom-[770px] left-[20px] lg:left-[100px] w-20 lg:w-40" />
+      <img src={ufo1} alt="" aria-hidden="true" className="absolute top-[600px] sm:top-[550px] lg:top-[170px] right-[20px] lg:left-[150px] w-20 lg:w-28" />
+      <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1500px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
+      <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[570px] sm:bottom-[620px] lg:bottom-[820px] left-[20px] lg:left-[100px] w-20 lg:w-40" />
       <img src={MenInBlack} alt="" aria-hidden="true" className="absolute top-[255px] sm:top-[250px] lg:top-[360px] right-[20px] sm:right-[120px] lg:right-[140px] w-12 sm:w-16 lg:w-24 rotate-45 sm:rotate-0" />
 
       {/* SP characters */}
@@ -252,14 +252,14 @@ const Decorations = () => {
                 className={`absolute ${spinState ? styles["spin-center"] : ""
                   }`}
                 style={{
-                  top: "calc(90% - 150px)",
+                  top: "calc(90% - 100px)",
                   left: "50%",
                   transform: "translateX(-50%)",
                   width: charData[3].width,
                   height: charData[3].height,
                 }}
               />
-              <div className={styles.sunrise} style={{ top: "91%" }} />
+              <div className={styles.sunrise} style={{ top: "92%" }} />
             </>
           )}
 
