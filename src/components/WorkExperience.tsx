@@ -59,11 +59,11 @@ const items = [
   },
   {
     id: 'freelance',
-    company: { en: 'Other Freelance Work', ja: 'その他の業務委託・個人受注' },
+    company: { en: 'Other Freelance Work(Based in Canada from October 2025 to September 2026)', ja: 'その他の業務委託・個人受注（2025年10月～2026年9月までカナダ滞在）' },
     segments: [
       {
         id: 'ai-evaluation',
-        period: { en: 'Nov 2025 (Contract signed)', ja: '2025年11月（契約締結）' },
+        period: { en: 'Nov 2025 – Sep 2026 (Contract)', ja: '2025年11月～2026年9月（業務委託）' },
         roles: [{ en: 'AI Model Evaluation', ja: 'AIモデル評価' }],
         detail: {
           en: ['Evaluated the quality and suitability of AI model responses for Invisible Technologies, following written instructions in English.'],
@@ -72,7 +72,7 @@ const items = [
       },
       {
         id: 'canada',
-        period: { en: 'Jan 2026 (Canada)', ja: '2026年1月（カナダ）' },
+        period: { en: 'Jan 2026 (Direct Client Project)', ja: '2026年1月（個人受注）' },
         roles: [frontendDeveloper],
         detail: {
           en: ['Took on a WordPress project directly from a local business. Clarified requirements in English, fixed video controls and layout issues, and recommended hosting improvements after tracing slow response times to server resource limits.'],
@@ -81,7 +81,7 @@ const items = [
       },
       {
         id: 'japan',
-        period: { en: 'Feb 2026 – Present', ja: '2026年2月〜現在' },
+        period: { en: 'Feb 2026 – Present（Contract）', ja: '2026年2月〜現在（業務委託）' },
         roles: [frontendDeveloper],
         detail: {
           en: [
