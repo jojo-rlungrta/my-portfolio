@@ -1,4 +1,5 @@
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
+import type { Language } from '../language';
 
 const LinkedInIcon = () => (
   <svg
@@ -21,7 +22,7 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-export default function Contact() {
+export default function Contact({ language }: { language: Language }) {
   return (
     <section className="mt-20">
       {/* ボタン：スマホ縦、PC横（左寄せ） */}
@@ -35,7 +36,7 @@ export default function Contact() {
                      w-full sm:w-1/2 lg:w-1/3"
         >
           <EnvelopeIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
-          Contact
+          {language === 'ja' ? 'お問い合わせ' : 'Contact'}
         </a>
 
         {/* LinkedIn ボタン */}
@@ -55,7 +56,7 @@ export default function Contact() {
 
       {/* 代替テキスト */}
       <p className="mt-4 text-sm text-gray-100">
-        Or email directly: j.fukuda@rlungrta.jp
+        {language === 'ja' ? 'メールで直接連絡する場合：' : 'Or email directly: '}j.fukuda@rlungrta.jp
       </p>
     </section>
   );

@@ -1,83 +1,146 @@
-export default function WorkExperience() {
-  const items = [
-    {
-      company: 'Label Japan Co., Ltd. — Tokyo, Japan (Freelance / Remote)',
-      segments: [
-        {
-          period: 'Oct 2024 – Present',
-          roles: ['Web Project Manager', 'Front-end Developer'],
-          detail: [
-            'Managed full redesign of the company website, improving UI and mobile/tablet usability.',
-            'Developed a contact form using React, Next.js, and PHP to enhance client communication.',
-            'Integrated WordPress for easier content updates and organization.',
-            'Coordinated between clients and designers to ensure high-quality delivery.',
-            'I’m currently responsible for website maintenance and operations.',
-          ],
-        },
-      ],
-    },
-    {
-      company: 'Atlas21 Co., Ltd. — Tokyo, Japan (Permanent)',
-      segments: [
-        {
-          period: 'Apr 2023 – Oct 2024',
-          roles: ['Web Project Manager'],
-          detail: [
-            'Directed the redesign of a platinum credit card landing page, increasing applications threefold through better design and usability.',
-            'Led a large-scale renewal of a railway company’s website by combining three sites into one for improved accessibility and management.',
-            'Handled scheduling, quality control, and team coordination; project received strong client feedback for quality and delivery.',
-          ],
-        },
-        {
-          period: 'Apr 2017 – Mar 2023',
-          roles: ['Front-end Developer'],
-          detail: [
-            'Developed JavaScript functionality for a CMS-integrated product search system (Food manufacturer).',
-            'Created reusable site-wide components for an online shopping service introduction site.',
-            'Built a JavaScript-based product search system for a pharmaceutical website.',
-            'Designed an insurance request form with conditional elements and postal code auto-fill.',
-          ],
-        },
-      ],
-    },
-  ];
+import type { Language } from '../language';
 
+const webDirector = { en: 'Web Director', ja: 'Webディレクター' };
+const frontendDeveloper = { en: 'Front-end Developer', ja: 'フロントエンドエンジニア' };
+
+const items = [
+  {
+    id: 'label-japan',
+    company: { en: 'Label Japan Co., Ltd.', ja: '株式会社ラベルジャパン' },
+    segments: [
+      {
+        id: 'contract',
+        period: { en: 'Oct 2025 – Present (Contract)', ja: '2025年10月〜現在（業務委託）' },
+        roles: [webDirector, frontendDeveloper],
+        detail: {
+          en: ['Continue to maintain and operate the company’s official website and implement improvements as requested.'],
+          ja: ['公式サイトの保守・運用を継続し、要望に応じたサイト改善・改修を担当。'],
+        },
+      },
+      {
+        id: 'employee',
+        period: { en: 'Nov 2024 – Sep 2025 (Full-time)', ja: '2024年11月〜2025年9月（正社員）' },
+        roles: [webDirector, frontendDeveloper],
+        detail: {
+          en: [
+            'Directed and developed the official website redesign, from gathering requirements and coordinating with the designer to managing delivery and quality.',
+            'Built a contact form with React, Next.js, and PHP, and set up WordPress so the client could update content independently.',
+          ],
+          ja: [
+            '公式サイトのリニューアルで、要件整理、デザイナーとの仕様調整、進行・品質管理から開発まで担当。',
+            'React・Next.js・PHPで問い合わせフォームを開発し、顧客自身でコンテンツを更新できるWordPress環境を構築。',
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: 'freelance',
+    company: { en: 'Other Freelance Work', ja: 'その他の業務委託・個人受注' },
+    segments: [
+      {
+        id: 'japan',
+        period: { en: 'Feb 2026 – Present', ja: '2026年2月〜現在' },
+        roles: [frontendDeveloper],
+        detail: {
+          en: [
+            'Develop websites and improve site performance as a contractor for two web production agencies in Japan.',
+            'Optimized images and JavaScript on a WordPress site. Its Lighthouse Performance score rose from 57 to 81 on mobile and from 75 to 81 on desktop.',
+            'Rebuilt a sheet metal contractor’s website with responsive layouts, semantic HTML, structured data, and a WordPress editing workflow.',
+          ],
+          ja: [
+            '国内のWeb制作会社2社と業務委託契約を結び、サイト構築やパフォーマンス改善を担当。',
+            'WordPressサイトの画像やJavaScriptを最適化。Lighthouseのパフォーマンススコアをモバイルで57から81、デスクトップで75から81に改善。',
+            '建築板金会社のサイトを再構築し、レスポンシブ対応、セマンティックHTML、構造化データ、WordPressの更新環境を実装。',
+          ],
+        },
+      },
+      {
+        id: 'canada',
+        period: { en: 'Jan 2026 (Canada)', ja: '2026年1月（カナダ）' },
+        roles: [frontendDeveloper],
+        detail: {
+          en: ['Took on a WordPress project directly from a local business. Clarified requirements in English, fixed video controls and layout issues, and recommended hosting improvements after tracing slow response times to server resource limits.'],
+          ja: ['現地事業者からWordPressサイトの改修を直接受注。英語で要件を確認し、動画の再生制御やレイアウトを修正。表示遅延の主因がサーバーのリソース制限にあると特定し、ホスティング環境の改善を提案。'],
+        },
+      },
+      {
+        id: 'ai-evaluation',
+        period: { en: 'Nov 2025 (Contract signed)', ja: '2025年11月（契約締結）' },
+        roles: [{ en: 'AI Model Evaluation', ja: 'AIモデル評価' }],
+        detail: {
+          en: ['Evaluated the quality and suitability of AI model responses for Invisible Technologies, following written instructions in English.'],
+          ja: ['米国企業Invisible Technologiesとの業務委託契約にて、英文の指示に基づき、AIモデルの回答の品質・適切性を評価。'],
+        },
+      },
+    ],
+  },
+  {
+    id: 'atlas21',
+    company: { en: 'Atlas21 Co., Ltd.', ja: '株式会社あとらす二十一' },
+    segments: [
+      {
+        id: 'employee',
+        period: { en: 'Apr 2017 – Oct 2024 (Full-time)', ja: '2017年4月〜2024年10月（正社員）' },
+        roles: [frontendDeveloper, webDirector],
+        detail: {
+          en: [
+            'Railway website consolidation (Oct 2023 – Oct 2024): Coordinated requirements across three related sites. Analyzed the JSON feed and JavaScript rendering for service alerts and clarified the implementation requirements with the development team.',
+            'Insurance request form (Jun – Oct 2023): Implemented conditional fields, front-end integration with Yahoo! login, and postal code address suggestions.',
+            'Pharmaceutical product search (Apr – Aug 2022): Built JavaScript keyword search, partial matching, and pagination using CSV data maintained by the client.',
+            'Credit card landing page (Apr – Oct 2021): Directed a redesign of the platinum card application flow. Applications rose to about three times their previous level after launch.',
+          ],
+          ja: [
+            '鉄道会社の関連3サイト統合（2023年10月〜2024年10月）：関係部署との要件調整を担当。運行情報のJSONとJavaScriptの表示処理を解析し、開発チームと実装仕様を整理。',
+            '保険会社の資料請求フォーム（2023年6月〜10月）：項目の動的切り替え、Yahoo!ログイン連携のフロントエンド対応、郵便番号による住所入力補助を実装。',
+            '製薬会社の製品検索（2022年4月〜8月）：顧客が更新するCSVをもとに、フリーワード・部分一致検索とページネーションをJavaScriptで実装。',
+            'カード会社のLP改善（2021年4月〜10月）：プラチナカードの申込導線の改善をディレクションし、公開後の申込数が従来の約3倍に増加。',
+          ],
+        },
+      },
+    ],
+  },
+];
+
+export default function WorkExperience({ language }: { language: Language }) {
   return (
     <section className="mt-20">
-      <h2 className="text-3xl font-semibold tracking-wide">Work Experience</h2>
+      <h2 className="text-3xl font-semibold tracking-wide">
+        {language === 'ja' ? '職務経歴' : 'Work Experience'}
+      </h2>
       <div className="relative mt-6">
         <ol className="relative after:absolute after:left-[10px] md:after:left-[33px] after:bottom-0 after:w-[15px] after:h-[15px] after:rounded-full after:bg-white">
-          {items.map((item, i) => (
-            <li key={i}>
+          {items.map((item) => (
+            <li key={item.id}>
               {/* 会社名*/}
               <div className="mt-4">
-                <h3 className="font-bold text-lg">{item.company}</h3>
+                <h3 className="font-bold text-lg">{item.company[language]}</h3>
               </div>
 
               {/* セグメント（期間ごと） */}
               <ol className="mt-4 ml-4 md:ml-10">
-                {item.segments.map((seg, j) => (
-                  <li key={j} className="mt-0 pt-0 pl-5 md:pl-10 relative [&:nth-child(n+2)]:pt-[20px] before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[2px] before:bg-white [&:nth-child(1)]:before:top-[3px] after:absolute after:top-[3px] after:left-[-7px] after:w-[15px] after:h-[15px] after:rounded-full after:bg-white [&:nth-child(n+2)]:after:top-[23px]">
+                {item.segments.map((seg) => (
+                  <li key={seg.id} className="mt-0 pt-0 pl-5 md:pl-10 relative [&:nth-child(n+2)]:pt-[20px] before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[2px] before:bg-white [&:nth-child(1)]:before:top-[3px] after:absolute after:top-[3px] after:left-[-7px] after:w-[15px] after:h-[15px] after:rounded-full after:bg-white [&:nth-child(n+2)]:after:top-[23px]">
                     <div>
                       {/* 期間 */}
-                      <p className="text-base font-semibold">{seg.period}</p>
+                      <p className="text-base font-semibold">{seg.period[language]}</p>
 
                       {/* ロール */}
                       <div className="flex flex-wrap items-center gap-2 mt-3">
                         {seg.roles.map((r) => (
                           <span
-                            key={r}
+                            key={r.en}
                             className="inline-block text-sm font-semibold px-3 py-1 border border-white text-white"
                           >
-                            {r}
+                            {r[language]}
                           </span>
                         ))}
                       </div>
 
                       {/* 詳細 */}
                       <ul className="mt-3">
-                        {seg.detail.map((p, k) => (
-                          <li key={k} className="list-none text-sm pl-[20px] relative [&:nth-child(n+2)]:mt-[10px] before:absolute before:left-0 before:top-[9px] before:w-[8px] before:h-[1px] before:bg-white">{p}</li>
+                        {seg.detail[language].map((paragraph) => (
+                          <li key={paragraph} className="list-none text-sm pl-[20px] relative [&:nth-child(n+2)]:mt-[10px] before:absolute before:left-0 before:top-[9px] before:w-[8px] before:h-[1px] before:bg-white">{paragraph}</li>
                         ))}
                       </ul>
                     </div>
