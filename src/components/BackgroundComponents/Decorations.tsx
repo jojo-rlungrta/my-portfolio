@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Decorations.module.css";
 
@@ -34,18 +34,27 @@ interface ItemData {
   width: number;
 }
 
+const FLYING_HERO_SIZE = 176;
+const LANDING_SIZE = 240;
+// The lower boot sits slightly to the left of the highest point of the planet.
+const LANDING_OVERLAP = 2;
+
 const Decorations = () => {
   // ====== State management ======
+  const decorationRef = useRef<HTMLDivElement>(null);
+  const planetRef = useRef<HTMLDivElement>(null);
   const [scroll, setScroll] = useState(0); // Current scroll position
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 }); // Window size
+  const [{ width, maxScroll, landingY, pageHeight }, setLayout] = useState({
+    width: 0,
+    maxScroll: 0,
+    landingY: 0,
+    pageHeight: 0,
+  });
   const [activeCharIndex, setActiveCharIndex] = useState(0); // Current character index
   const [visibleItems, setVisibleItems] = useState<{ [key: string]: boolean }>({ item1: true, item2: true, }); // Visible items
-  const [maxScroll, setMaxScroll] = useState(0); // Maximum scrollable distance
   const [spinState, setSpinState] = useState(false); // Spin animation flag
-  const [jojo4Y, setJojo4Y] = useState(0); // Jojo4 Y position
-  const [pageHeight, setPageHeight] = useState(0); // Full page height
 
-  const isDesktop = windowSize.width >= 1024;
+  const isDesktop = width >= 1024;
 
   // Linear interpolation
   const lerp = (start: number, end: number, t: number) =>
@@ -57,19 +66,28 @@ const Decorations = () => {
 
   // ====== Watch window size & page height ======
   useEffect(() => {
-    const updateSize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
+    const decoration = decorationRef.current;
+    const planet = planetRef.current;
+    if (!decoration || !planet) return;
 
-      setWindowSize({ width, height });
-      setMaxScroll(scrollHeight - height);
-      setJojo4Y(scrollHeight * 0.8 + 400); // Jojo4 position = 80% of page + 300px
-      setPageHeight(scrollHeight); // Full page height
+    const updateSize = () => {
+      setLayout({
+        width: window.innerWidth,
+        maxScroll: Math.max(0, document.documentElement.scrollHeight - window.innerHeight),
+        landingY: planet.offsetTop + LANDING_OVERLAP,
+        pageHeight: decoration.clientHeight,
+      });
+      setScroll(window.scrollY);
     };
     updateSize();
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(decoration);
+    observer.observe(planet);
     window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateSize);
+    };
   }, []);
 
   // ====== Scroll tracking (desktop only) ======
@@ -84,8 +102,8 @@ const Decorations = () => {
   const charData: CharData[] = [
     {
       img: jojo1,
-      start: { x: windowSize.width / 2 - 128, y: 210 },
-      end: { x: windowSize.width - 100 - 128, y: 600 },
+      start: { x: width / 2 - 128, y: 210 },
+      end: { x: width - 100 - 128, y: 600 },
       nextItem: "item1",
       width: 128,
       height: 128,
@@ -93,7 +111,7 @@ const Decorations = () => {
     },
     {
       img: jojo2,
-      start: { x: windowSize.width - 50 - 192, y: 600 },
+      start: { x: width - 50 - 192, y: 600 },
       end: { x: 100, y: 1600 },
       nextItem: "item2",
       width: 160,
@@ -103,77 +121,92 @@ const Decorations = () => {
     {
       img: jojo3,
       start: { x: 100, y: 1600 },
-      end: { x: windowSize.width / 2 - 176 / 2, y: jojo4Y },
+      end: { x: width / 2 - FLYING_HERO_SIZE / 2, y: landingY - FLYING_HERO_SIZE },
       nextItem: "jojo4",
-      width: 176,
-      height: 176,
-      scrollRange: [1400, jojo4Y],
+      width: FLYING_HERO_SIZE,
+      height: FLYING_HERO_SIZE,
+      scrollRange: [1400, landingY],
     },
     {
       img: jojo4,
-      start: { x: windowSize.width / 2 - 256 / 2, y: jojo4Y },
+      start: { x: width / 2 - LANDING_SIZE / 2, y: landingY - LANDING_SIZE },
       end: null,
       nextItem: null,
-      width: 240,
-      height: 240,
+      width: LANDING_SIZE,
+      height: LANDING_SIZE,
     },
   ];
 
   // ====== Item positions ======
   const itemData: { [key: string]: ItemData } = {
-    item1: { img: item1, pos: { x: windowSize.width - 100 - 128, y: 650 }, width: 140 },
+    item1: { img: item1, pos: { x: width - 100 - 128, y: 650 }, width: 140 },
     item2: { img: item2, pos: { x: 100, y: 1650 }, width: 112 },
   };
 
   // ====== Calculate character position ======
   const getCharPosition = (char: CharData) => {
-    if (!isDesktop || !char.end || !char.scrollRange)
+    if (!isDesktop || !char.end || !char.scrollRange || landingY <= 0 || maxScroll <= 0)
       return { ...char.start, t: 0 };
-    const startScroll = (char.scrollRange[0] / jojo4Y) * maxScroll;
-    const endScroll = (char.scrollRange[1] / jojo4Y) * maxScroll;
+    const startScroll = (char.scrollRange[0] / landingY) * maxScroll;
+    const endScroll = (char.scrollRange[1] / landingY) * maxScroll;
+    const scrollPosition = scroll >= maxScroll - 1 ? maxScroll : scroll;
     let t = Math.min(
-      Math.max((scroll - startScroll) / (endScroll - startScroll), 0),
+      Math.max((scrollPosition - startScroll) / (endScroll - startScroll), 0),
       1
     );
     t = easeInOutQuad(t);
     return { x: lerp(char.start.x, char.end.x, t), y: lerp(char.start.y, char.end.y, t), t };
   };
 
-  // ====== Handle character arrival ======
-  useEffect(() => {
-    if (!isDesktop || activeCharIndex > 3) return;
-    const currentChar = charData[activeCharIndex];
-    const { t } = getCharPosition(currentChar);
-    if (t >= 1) {
-      setSpinState(true);
-      setTimeout(() => setSpinState(false), 500);
-      if (currentChar.nextItem === "jojo4") {
-        setActiveCharIndex(3);
-      } else if (currentChar.nextItem?.startsWith("item")) {
-        setVisibleItems((prev) => ({
-          ...prev,
-          [currentChar.nextItem as string]: false,
-        }));
-        setActiveCharIndex((prev) => prev + 1);
-      }
-    }
-  }, [scroll, activeCharIndex, windowSize, maxScroll, isDesktop, charData]);
-
-  // Current character
   const currentChar = charData[activeCharIndex];
   const pos = getCharPosition(currentChar);
+  const nextItem = currentChar.nextItem;
   const isBeforeMove = activeCharIndex === 0 && pos.t === 0;
+  const hasLanded = activeCharIndex === 3;
+
+  // ====== Handle character arrival ======
+  useEffect(() => {
+    if (!isDesktop || pos.t < 1 || !nextItem) return;
+    setSpinState(true);
+    if (nextItem !== "jojo4") {
+      setVisibleItems((prev) => ({ ...prev, [nextItem]: false }));
+    }
+    setActiveCharIndex((prev) => prev + 1);
+  }, [isDesktop, pos.t, nextItem]);
+
+  useEffect(() => {
+    if (!spinState) return;
+    const timer = window.setTimeout(() => setSpinState(false), 500);
+    return () => window.clearTimeout(timer);
+  }, [spinState, activeCharIndex]);
 
   // ====== Rocket settings (launch on page load, constant speed) ======
   const rocketSpeed = 200; // px/s
   const rocketDuration = pageHeight > 0 ? pageHeight / rocketSpeed : 0;
 
   return (
-    <div className="absolute inset-0 -z-10 pointer-events-none">
+    <div ref={decorationRef} className="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
       {/* Background */}
       <img src={star1} alt="" aria-hidden="true" className="absolute top-[270px] lg:top-[400px] right-0 w-60 lg:w-80" />
       <img src={star2} alt="" aria-hidden="true" className="absolute top-[2000px] lg:top-[1200px] -left-10 w-[300px] lg:w-[600px]" />
-      <img src={star3} alt="" aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full lg:min-w-[1920px]" />
+      <div ref={planetRef} className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:min-w-[1920px]">
+        <div
+          className={`absolute inset-x-0 ${hasLanded ? "" : "lg:hidden"}`}
+          style={{ bottom: `calc(100% - ${LANDING_OVERLAP}px)` }}
+        >
+          <img
+            src={jojo4}
+            alt=""
+            className={`absolute bottom-0 left-1/2 w-[120px] -translate-x-1/2 sm:w-[160px] ${
+              isDesktop && spinState ? styles["spin-center"] : ""
+            }`}
+            style={isDesktop ? { width: LANDING_SIZE, height: LANDING_SIZE } : undefined}
+          />
+          <div className={`hidden lg:block ${styles.sunrise}`} />
+          <div className={`lg:hidden ${styles["sunrise-mobile"]}`} />
+        </div>
+        <img src={star3} alt="" width={1920} height={369} className="relative h-auto w-full" />
+      </div>
       <img src={ufo1} alt="" aria-hidden="true" className="absolute top-[600px] sm:top-[550px] lg:top-[170px] right-[20px] lg:left-[150px] w-20 lg:w-28" />
       <img src={ufo2} alt="" aria-hidden="true" className="absolute bottom-[1500px] sm:bottom-[1050px] lg:bottom-[1350px] right-[20px] sm:right-[50px] lg:right-[100px] w-16 lg:w-28" />
       <img src={alien} alt="" aria-hidden="true" className="absolute bottom-[570px] sm:bottom-[620px] lg:bottom-[820px] left-[20px] lg:left-[100px] w-20 lg:w-40" />
@@ -181,14 +214,6 @@ const Decorations = () => {
 
       {/* SP characters */}
       <img src={jojo3} alt="" aria-hidden="true" className="lg:hidden absolute top-[200px] sm:top-[150px] left-1/2 -translate-x-1/2 w-[120px] sm:w-[150px]" />
-      <img src={jojo4} alt="" aria-hidden="true" className="lg:hidden absolute bottom-[calc(90*100vw/640)] sm:bottom-[calc(150*100vw/1024)] left-1/2 -translate-x-1/2 w-[120px] sm:w-[160px]" />
-      <div
-        className="lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(20*100vw/640)] sm:bottom-[calc(0*100vw/1024)] w-[130px] sm:w-[calc(300*100vw/1024)] h-[130px] sm:h-[calc(300*100vw/1024)] rounded-full -z-10"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,200,0.9) 30%, rgba(255,255,200,0) 70%)",
-        }}
-      />
       {/* Rocket (launch on page load, constant speed) */}
       <motion.img
         src={rocket}
@@ -228,7 +253,7 @@ const Decorations = () => {
           )}
 
           {/* Moving character */}
-          {activeCharIndex < 3 && (
+          {!hasLanded && (
             <img
               src={currentChar.img}
               alt=""
@@ -241,26 +266,6 @@ const Decorations = () => {
                 height: currentChar.height,
               }}
             />
-          )}
-
-          {/* Final character jojo4 */}
-          {activeCharIndex === 3 && (
-            <>
-              <img
-                src={jojo4}
-                alt=""
-                className={`absolute ${spinState ? styles["spin-center"] : ""
-                  }`}
-                style={{
-                  top: "calc(90% - 100px)",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: charData[3].width,
-                  height: charData[3].height,
-                }}
-              />
-              <div className={styles.sunrise} style={{ top: "92%" }} />
-            </>
           )}
 
         </>

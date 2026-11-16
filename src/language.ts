@@ -1,11 +1,13 @@
 export type Language = 'en' | 'ja';
 
-export const DEFAULT_LANGUAGE: Language = 'en';
-const STORAGE_KEY = 'portfolio-language';
+const DEFAULT_LANGUAGE: Language = 'ja';
+// The old key stored English even when the visitor had never selected it.
+const STORAGE_KEY = 'portfolio-language-preference';
 
 export function getSavedLanguage(): Language {
   try {
-    return window.localStorage.getItem(STORAGE_KEY) === 'ja' ? 'ja' : DEFAULT_LANGUAGE;
+    const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
+    return savedLanguage === 'en' || savedLanguage === 'ja' ? savedLanguage : DEFAULT_LANGUAGE;
   } catch {
     return DEFAULT_LANGUAGE;
   }

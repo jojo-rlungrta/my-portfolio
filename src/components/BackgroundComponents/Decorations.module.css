@@ -49,21 +49,30 @@ body {
 
 /* Sun effect animation */
 @keyframes rise-light {
-  0%   { transform: translate(-50%, 50px) scale(0.8); opacity: 0; }
+  0%   { transform: translate(-50%, -30%) scale(0.8); opacity: 0; }
   20%  { opacity: 1; }
-  100% { transform: translate(-50%, -50px) scale(1.5); opacity: 1; }
+  100% { transform: translate(-50%, -60%) scale(1.5); opacity: 1; }
+}
+
+.sunrise,
+.sunrise-mobile {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background: radial-gradient(circle, rgba(255,255,200,0.9) 30%, rgba(255,255,200,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .sunrise {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(255,255,200,0.9) 30%, rgba(255,255,200,0) 70%);
-  border-radius: 50%;
-  transform: translate(-50%, 0);
   animation: rise-light 3s ease-out forwards;
-  pointer-events: none;
-  z-index: -1;
+}
+
+.sunrise-mobile {
+  width: max(130px, 29vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -55%);
 }

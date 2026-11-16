@@ -1,4 +1,5 @@
 import type { Language } from '../language';
+import { frontendDeveloper, professionalTitle, webDirector } from '../roles';
 
 const languages = [
   { code: 'ja', label: '日本語' },
@@ -40,8 +41,14 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
       <h1 className={`font-bold text-white drop-shadow-lg lg:text-7xl ${isJapanese ? 'text-5xl sm:text-6xl' : 'text-6xl'}`}>
         {isJapanese ? '福田 城之介' : 'Jonosuke Fukuda'}
       </h1>
-      <p className="mt-2 text-2xl lg:text-3xl drop-shadow-md">
-        {isJapanese ? 'フロントエンドエンジニア' : 'Frontend Developer'}
+      <p className="mt-2 text-balance text-xl sm:text-2xl lg:text-3xl drop-shadow-md">
+        {isJapanese ? (
+          <>
+            <span className="inline-block">{webDirector.ja}兼</span>
+            <wbr />
+            <span className="inline-block">{frontendDeveloper.ja}</span>
+          </>
+        ) : professionalTitle.en}
       </p>
     </header>
   );

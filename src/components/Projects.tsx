@@ -8,11 +8,7 @@ import project7 from '../assets/portfolio_projects_im05.webp';
 import project8 from '../assets/portfolio_projects_im06.webp';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 import type { Language } from '../language';
-
-const roles = {
-  'Front-end Developer': 'フロントエンドエンジニア',
-  'Web Project Manager': 'Webディレクター',
-} as const;
+import { frontendDeveloper, webDirector } from '../roles';
 
 export default function Projects({ language }: { language: Language }) {
   const projects = [
@@ -20,11 +16,11 @@ export default function Projects({ language }: { language: Language }) {
       id: 1,
       title: { en: 'Printing Company Official Website', ja: '印刷会社の公式サイト' },
       url: 'https://www.label-japan.co.jp/',
-      role: ['Front-end Developer', 'Web Project Manager'],
+      roles: [webDirector, frontendDeveloper],
       tech: ['React', 'Next.js', 'PHP', 'WordPress', 'SCSS', 'JavaScript', 'jQuery', 'Webpack', 'Git'],
       description: {
-        en: 'Redesigned a printing company website, improving UI and mobile/tablet usability. Handled both direction and front-end development, including a contact form and WordPress integration for easy content management.',
-        ja: '印刷会社の公式サイトをリニューアルし、UIとスマートフォン・タブレットでの使いやすさを改善。ディレクションとフロントエンド開発を担当し、問い合わせフォームの実装や、コンテンツを更新しやすくするWordPress連携を行いました。',
+        en: 'Directed the website redesign to improve the mobile experience and make it easier to get in touch. I gathered requirements, coordinated with the designer, and managed the schedule and quality. I built the contact form with React, Next.js, and PHP and set up WordPress so staff could update content themselves. I continue to maintain the site. The client also credited the redesign with helping them hire two junior sales staff.',
+        ja: 'スマートフォンでの閲覧性と問い合わせ導線を改善するため、公式サイトをリニューアルしました。要件定義、デザイナーとの仕様調整、進行・品質管理を担当し、React・Next.js・PHPで問い合わせフォームを開発。WordPressで担当者が自ら情報を更新できる環境を整え、公開後も保守・改修を担当しています。クライアントからは、若手営業職2名の採用にもつながったと評価をいただきました。',
       },
       img: project1,
     },
@@ -32,11 +28,11 @@ export default function Projects({ language }: { language: Language }) {
       id: 2,
       title: { en: 'Railway Company Official Website', ja: '鉄道会社の公式サイト' },
       url: 'https://www.keihan.co.jp/',
-      role: ['Web Project Manager'],
+      roles: [webDirector],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
-        en: 'Led a large-scale renewal by consolidating three railway websites into one, improving accessibility and site management.',
-        ja: '鉄道関連の3サイトを1つに統合する大規模リニューアルを主導し、アクセシビリティとサイト管理を改善しました。',
+        en: 'Helped consolidate three sites for a railway company and its holding company. I organized overlapping content and coordinated requirements across departments. I worked with the hosting provider and the client’s IT team to map how existing systems connected. I also reviewed the JSON feed and JavaScript rendering for live train updates and documented how delays should appear for the development team.',
+        ja: '鉄道会社と持株会社の関連3サイトを統合するリニューアルで、コンテンツの整理と関係部署との要件・仕様調整を担当しました。サーバー事業者や顧客の情報システム部と連携し、既存システムとの接続構成を整理。運行情報のJSONとJavaScriptの表示処理を分析し、遅延情報などの表示仕様を明確にして開発チームに共有しました。',
       },
       img: project2,
     },
@@ -44,11 +40,11 @@ export default function Projects({ language }: { language: Language }) {
       id: 3,
       title: { en: 'Credit Card Company Official Website', ja: 'クレジットカード会社の公式サイト' },
       url: 'https://www.eposcard.co.jp/',
-      role: ['Web Project Manager'],
+      roles: [webDirector],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
-        en: 'Directed the redesign of a platinum credit card landing page, tripling applications through improved design and usability.',
-        ja: 'プラチナカードのランディングページのリニューアルをディレクションし、デザインと使いやすさの改善により申込数が3倍に増加しました。',
+        en: 'Directed the redesign of a platinum credit card landing page. We tailored content to each visitor’s referral source and added expandable sections and in-page navigation to make information easier to find. A collapsible floating button let visitors apply while browsing the page. Applications rose to about three times their previous level after launch.',
+        ja: 'プラチナカードの申込数向上を目的に、ランディングページのリニューアルをディレクションしました。流入元に応じて内容を切り替え、アコーディオンやページ内ナビゲーションで情報を探しやすくしました。開閉できる追従型の申込ボタンを設け、閲覧中の任意のタイミングで申し込めるようにしました。公開後の申込数は従来の約3倍になりました。',
       },
       img: project3,
     },
@@ -56,7 +52,7 @@ export default function Projects({ language }: { language: Language }) {
       id: 4,
       title: { en: 'Food Manufacturer Official Website', ja: '食品メーカーの公式サイト' },
       url: 'https://www.kikkoman.com/en/',
-      role: ['Front-end Developer'],
+      roles: [frontendDeveloper],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
         en: 'Led the JavaScript development of a CMS-integrated product search system, connecting products with recipes while prioritizing usability and seamless user experience.',
@@ -68,7 +64,7 @@ export default function Projects({ language }: { language: Language }) {
       id: 5,
       title: { en: 'Online Shopping Service Introduction Site', ja: 'ネットショップ運営サービスの紹介サイト' },
       url: 'https://business.kuronekoyamato.co.jp/raku-uru/',
-      role: ['Front-end Developer'],
+      roles: [frontendDeveloper],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
         en: 'Developed site-wide reusable components, carefully designing CSS to ensure consistent functionality and appearance across all pages.',
@@ -80,7 +76,7 @@ export default function Projects({ language }: { language: Language }) {
       id: 6,
       title: { en: 'Pharmaceutical Product Search Site', ja: '製薬会社の製品検索サイト' },
       url: 'https://www.otsuka.co.jp/cil/',
-      role: ['Front-end Developer'],
+      roles: [frontendDeveloper],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
         en: 'Built a JavaScript-based product search system using customer-updated CSV files, supporting free-word search, partial matches, and pagination for results over 10 items.',
@@ -92,7 +88,7 @@ export default function Projects({ language }: { language: Language }) {
       id: 7,
       title: { en: 'Insurance Company Official Website', ja: '保険会社の公式サイト' },
       url: 'https://neofirst.co.jp/',
-      role: ['Front-end Developer'],
+      roles: [frontendDeveloper],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
         en: 'Designed an insurance request form with conditional elements via URL queries, Yahoo! login integration, and postal code suggestion features.',
@@ -104,7 +100,7 @@ export default function Projects({ language }: { language: Language }) {
       id: 8,
       title: { en: 'Jewelry Manufacturer Official Website', ja: '宝飾品メーカーの公式サイト' },
       url: 'https://www.ishifuku-kinzoku.co.jp/',
-      role: ['Front-end Developer'],
+      roles: [frontendDeveloper],
       tech: ['SCSS', 'JavaScript', 'jQuery', 'Webpack'],
       description: {
         en: 'Handled the front-end of the official homepage, implementing sliders and dynamic topic displays using jQuery and AJAX with JSON.',
@@ -166,12 +162,12 @@ export default function Projects({ language }: { language: Language }) {
 
               {/* ✅ Role badges (白枠＋白文字＋背景なし) */}
               <div className="flex flex-wrap gap-2 mt-2 mb-2">
-                {project.role.map((r) => (
+                {project.roles.map((role) => (
                   <span
-                    key={r}
+                    key={role.en}
                     className="inline-block text-white text-sm px-3 py-1 border border-white font-semibold"
                   >
-                    {language === 'ja' ? roles[r] : r}
+                    {role[language]}
                   </span>
                 ))}
               </div>

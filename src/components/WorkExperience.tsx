@@ -1,22 +1,36 @@
 import type { Language } from '../language';
-
-const webDirector = { en: 'Web Director', ja: 'Webディレクター' };
-const frontendDeveloper = { en: 'Front-end Developer', ja: 'フロントエンドエンジニア' };
+import { frontendDeveloper, webDirector } from '../roles';
 
 const items = [
+  {
+    id: 'atlas21',
+    company: { en: 'Atlas21 Co., Ltd.', ja: '株式会社あとらす二十一' },
+    segments: [
+      {
+        id: 'employee',
+        period: { en: 'Apr 2017 – Oct 2024 (Full-time)', ja: '2017年4月〜2024年10月（正社員）' },
+        roles: [webDirector, frontendDeveloper],
+        detail: {
+          en: [
+            'Credit card landing page (Apr – Oct 2021): Directed a redesign of the platinum card application flow. Applications rose to about three times their previous level after launch.',
+            'Pharmaceutical product search (Apr – Aug 2022): Built JavaScript keyword search, partial matching, and pagination using CSV data maintained by the client.',
+            'Insurance request form (Jun – Oct 2023): Implemented conditional fields, front-end integration with Yahoo! login, and postal code address suggestions.',
+            'Railway website consolidation (Oct 2023 – Oct 2024): Coordinated requirements across three related sites. Analyzed the JSON feed and JavaScript rendering for service alerts and clarified the implementation requirements with the development team.',
+          ],
+          ja: [
+            'カード会社のLP改善（2021年4月〜10月）：プラチナカードの申込導線の改善をディレクションし、公開後の申込数が従来の約3倍に増加。',
+            '製薬会社の製品検索（2022年4月〜8月）：顧客が更新するCSVをもとに、フリーワード・部分一致検索とページネーションをJavaScriptで実装。',
+            '保険会社の資料請求フォーム（2023年6月〜10月）：項目の動的切り替え、Yahoo!ログイン連携のフロントエンド対応、郵便番号による住所入力補助を実装。',
+            '鉄道会社の関連3サイト統合（2023年10月〜2024年10月）：関係部署との要件調整を担当。運行情報のJSONとJavaScriptの表示処理を解析し、開発チームと実装仕様を整理。',
+          ],
+        },
+      },
+    ],
+  },
   {
     id: 'label-japan',
     company: { en: 'Label Japan Co., Ltd.', ja: '株式会社ラベルジャパン' },
     segments: [
-      {
-        id: 'contract',
-        period: { en: 'Oct 2025 – Present (Contract)', ja: '2025年10月〜現在（業務委託）' },
-        roles: [webDirector, frontendDeveloper],
-        detail: {
-          en: ['Continue to maintain and operate the company’s official website and implement improvements as requested.'],
-          ja: ['公式サイトの保守・運用を継続し、要望に応じたサイト改善・改修を担当。'],
-        },
-      },
       {
         id: 'employee',
         period: { en: 'Nov 2024 – Sep 2025 (Full-time)', ja: '2024年11月〜2025年9月（正社員）' },
@@ -32,12 +46,39 @@ const items = [
           ],
         },
       },
+      {
+        id: 'contract',
+        period: { en: 'Oct 2025 – Present (Contract)', ja: '2025年10月〜現在（業務委託）' },
+        roles: [webDirector, frontendDeveloper],
+        detail: {
+          en: ['Continue to maintain and operate the company’s official website and implement improvements as requested.'],
+          ja: ['公式サイトの保守・運用を継続し、要望に応じたサイト改善・改修を担当。'],
+        },
+      },
     ],
   },
   {
     id: 'freelance',
     company: { en: 'Other Freelance Work', ja: 'その他の業務委託・個人受注' },
     segments: [
+      {
+        id: 'ai-evaluation',
+        period: { en: 'Nov 2025 (Contract signed)', ja: '2025年11月（契約締結）' },
+        roles: [{ en: 'AI Model Evaluation', ja: 'AIモデル評価' }],
+        detail: {
+          en: ['Evaluated the quality and suitability of AI model responses for Invisible Technologies, following written instructions in English.'],
+          ja: ['米国企業Invisible Technologiesとの業務委託契約にて、英文の指示に基づき、AIモデルの回答の品質・適切性を評価。'],
+        },
+      },
+      {
+        id: 'canada',
+        period: { en: 'Jan 2026 (Canada)', ja: '2026年1月（カナダ）' },
+        roles: [frontendDeveloper],
+        detail: {
+          en: ['Took on a WordPress project directly from a local business. Clarified requirements in English, fixed video controls and layout issues, and recommended hosting improvements after tracing slow response times to server resource limits.'],
+          ja: ['現地事業者からWordPressサイトの改修を直接受注。英語で要件を確認し、動画の再生制御やレイアウトを修正。表示遅延の主因がサーバーのリソース制限にあると特定し、ホスティング環境の改善を提案。'],
+        },
+      },
       {
         id: 'japan',
         period: { en: 'Feb 2026 – Present', ja: '2026年2月〜現在' },
@@ -52,49 +93,6 @@ const items = [
             '国内のWeb制作会社2社と業務委託契約を結び、サイト構築やパフォーマンス改善を担当。',
             'WordPressサイトの画像やJavaScriptを最適化。Lighthouseのパフォーマンススコアをモバイルで57から81、デスクトップで75から81に改善。',
             '建築板金会社のサイトを再構築し、レスポンシブ対応、セマンティックHTML、構造化データ、WordPressの更新環境を実装。',
-          ],
-        },
-      },
-      {
-        id: 'canada',
-        period: { en: 'Jan 2026 (Canada)', ja: '2026年1月（カナダ）' },
-        roles: [frontendDeveloper],
-        detail: {
-          en: ['Took on a WordPress project directly from a local business. Clarified requirements in English, fixed video controls and layout issues, and recommended hosting improvements after tracing slow response times to server resource limits.'],
-          ja: ['現地事業者からWordPressサイトの改修を直接受注。英語で要件を確認し、動画の再生制御やレイアウトを修正。表示遅延の主因がサーバーのリソース制限にあると特定し、ホスティング環境の改善を提案。'],
-        },
-      },
-      {
-        id: 'ai-evaluation',
-        period: { en: 'Nov 2025 (Contract signed)', ja: '2025年11月（契約締結）' },
-        roles: [{ en: 'AI Model Evaluation', ja: 'AIモデル評価' }],
-        detail: {
-          en: ['Evaluated the quality and suitability of AI model responses for Invisible Technologies, following written instructions in English.'],
-          ja: ['米国企業Invisible Technologiesとの業務委託契約にて、英文の指示に基づき、AIモデルの回答の品質・適切性を評価。'],
-        },
-      },
-    ],
-  },
-  {
-    id: 'atlas21',
-    company: { en: 'Atlas21 Co., Ltd.', ja: '株式会社あとらす二十一' },
-    segments: [
-      {
-        id: 'employee',
-        period: { en: 'Apr 2017 – Oct 2024 (Full-time)', ja: '2017年4月〜2024年10月（正社員）' },
-        roles: [frontendDeveloper, webDirector],
-        detail: {
-          en: [
-            'Railway website consolidation (Oct 2023 – Oct 2024): Coordinated requirements across three related sites. Analyzed the JSON feed and JavaScript rendering for service alerts and clarified the implementation requirements with the development team.',
-            'Insurance request form (Jun – Oct 2023): Implemented conditional fields, front-end integration with Yahoo! login, and postal code address suggestions.',
-            'Pharmaceutical product search (Apr – Aug 2022): Built JavaScript keyword search, partial matching, and pagination using CSV data maintained by the client.',
-            'Credit card landing page (Apr – Oct 2021): Directed a redesign of the platinum card application flow. Applications rose to about three times their previous level after launch.',
-          ],
-          ja: [
-            '鉄道会社の関連3サイト統合（2023年10月〜2024年10月）：関係部署との要件調整を担当。運行情報のJSONとJavaScriptの表示処理を解析し、開発チームと実装仕様を整理。',
-            '保険会社の資料請求フォーム（2023年6月〜10月）：項目の動的切り替え、Yahoo!ログイン連携のフロントエンド対応、郵便番号による住所入力補助を実装。',
-            '製薬会社の製品検索（2022年4月〜8月）：顧客が更新するCSVをもとに、フリーワード・部分一致検索とページネーションをJavaScriptで実装。',
-            'カード会社のLP改善（2021年4月〜10月）：プラチナカードの申込導線の改善をディレクションし、公開後の申込数が従来の約3倍に増加。',
           ],
         },
       },

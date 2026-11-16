@@ -1,4 +1,3 @@
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 import type { Language } from '../language';
 
 export default function Certification({ language }: { language: Language }) {
@@ -11,15 +10,7 @@ export default function Certification({ language }: { language: Language }) {
       </h2>
       <ul className="mt-6 space-y-3">
         <li>
-          <a
-            href="https://www.ipa.go.jp/en/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block hover:underline"
-          >
-            {isJapanese ? '基本情報技術者試験（国家資格）' : 'Fundamental Information Technology Engineer (Japan, National Certification)'}
-            <ArrowTopRightOnSquareIcon className="inline align-text-bottom w-4 h-4 ml-2" />
-          </a>
+          <p>{isJapanese ? '基本情報技術者試験（国家資格）' : 'Fundamental Information Technology Engineer (Japan, National Certification)'}</p>
           <p className="text-sm">{isJapanese ? '2014年4月' : 'Apr 2014'}</p>
         </li>
         <li>
