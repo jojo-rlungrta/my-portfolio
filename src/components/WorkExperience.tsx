@@ -59,7 +59,7 @@ const items = [
   },
   {
     id: 'freelance',
-    company: { en: 'Other Freelance Work(Based in Canada from October 2025 to September 2026)', ja: 'その他の業務委託・個人受注（2025年10月～2026年9月までカナダ滞在）' },
+    company: { en: 'Other Freelance Work (Based in Canada from October 2025 to September 2026)', ja: 'その他の業務委託・個人受注（2025年10月～2026年9月までカナダ滞在）' },
     segments: [
       {
         id: 'ai-evaluation',
