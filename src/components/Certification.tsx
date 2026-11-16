@@ -10,7 +10,7 @@ export default function Certification({ language }: { language: Language }) {
       </h2>
       <ul className="mt-6 space-y-3">
         <li>
-          <p>{isJapanese ? '基本情報技術者試験（国家資格）' : 'Fundamental Information Technology Engineer (Japan, National Certification)'}</p>
+          <p>{isJapanese ? '基本情報技術者試験' : 'Fundamental Information Technology Engineer (Japan, National Certification)'}</p>
           <p className="text-sm">{isJapanese ? '2014年4月' : 'Apr 2014'}</p>
         </li>
         <li>
