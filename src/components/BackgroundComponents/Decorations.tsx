@@ -37,7 +37,7 @@ interface ItemData {
 const FLYING_HERO_SIZE = 176;
 const LANDING_SIZE = 240;
 // The lower boot sits slightly to the left of the highest point of the planet.
-const LANDING_OVERLAP = 2;
+const LANDING_OVERLAP = 15;
 
 const Decorations = () => {
   // ====== State management ======
@@ -197,9 +197,8 @@ const Decorations = () => {
           <img
             src={jojo4}
             alt=""
-            className={`absolute bottom-0 left-1/2 w-[120px] -translate-x-1/2 sm:w-[160px] ${
-              isDesktop && spinState ? styles["spin-center"] : ""
-            }`}
+            className={`absolute bottom-0 left-1/2 w-[120px] -translate-x-1/2 sm:w-[160px] ${isDesktop && spinState ? styles["spin-center"] : ""
+              }`}
             style={isDesktop ? { width: LANDING_SIZE, height: LANDING_SIZE } : undefined}
           />
           <div className={`hidden lg:block ${styles.sunrise}`} />
